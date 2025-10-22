@@ -1,53 +1,157 @@
-# React + TypeScript + Vite
+# 💰 Expense Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive expense tracking and budget management application built with React, TypeScript, and Tailwind CSS.
 
-Currently, two official plugins are available:
+🔗 **Live Demo**: [https://shamveelgit.github.io/expense-tracker-webapp](https://shamveelgit.github.io/expense-tracker-webapp)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- 📊 **Dashboard Overview**: Visual representation of your financial status with circular charts
+- 💸 **Expense Tracking**: Add, view, search, and export expenses to CSV
+- 💰 **Budget Management**: Create budgets, add amounts, and monitor spending
+- 🔍 **Smart Search**: Real-time search and filtering across expenses
+- 📱 **Fully Responsive**: Optimized for desktop, tablet, and mobile devices
+- 🎨 **Modern UI**: Clean interface with shadcn UI colors and smooth animations
+- 💾 **Local Storage**: All data persists in browser localStorage
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- **React 19.1.1** - UI framework
+- **TypeScript** - Type safety
+- **Vite 7.1.7** - Build tool with SWC
+- **Tailwind CSS 4.1.14** - Styling
+- **React Router 7.9.4** - Navigation
+- **Lucide React** - Icons
+- **Framer Motion** - Animations
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# Clone the repository
+git clone https://github.com/Shamveelgit/expense-tracker-webapp.git
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Navigate to project directory
+cd expense-tracker-webapp
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Available Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
+```bash
+# Development server with network access
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Lint code
+npm run lint
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── components/       # Reusable UI components
+│   ├── ui/          # Base UI components (sidebar, etc.)
+│   ├── AddExpenseModal.tsx
+│   ├── AddBudgetModal.tsx
+│   ├── BudgetCard.tsx
+│   └── ...
+├── pages/           # Page components
+│   ├── Dashboard.tsx
+│   ├── Expenses.tsx
+│   ├── Budgets.tsx
+│   ├── Analytics.tsx
+│   ├── Profile.tsx
+│   └── Settings.tsx
+├── lib/            # Utility functions
+│   └── storage.ts  # localStorage management
+└── App.tsx         # Main app component
+```
+
+## 🌐 Deployment to GitHub Pages
+
+The app is configured to deploy to GitHub Pages automatically:
+
+1. **Build the app**:
+   ```bash
+   npm run build
+   ```
+
+2. **Deploy**: The built files are in the `docs` folder, which GitHub Pages serves from.
+
+3. **GitHub Settings**:
+   - Go to repository Settings → Pages
+   - Source: Deploy from a branch
+   - Branch: `main` → `/docs` folder
+
+## 🎯 Key Features Explained
+
+### Dashboard
+- Circular progress chart showing spending vs remaining budget
+- Financial summary cards (Income, Expenses, Savings)
+- Quick overview of current budgets
+- Recent expenses table with search and sort
+
+### Expenses Page
+- Add new expenses with category selection
+- Search expenses by company, budget, or category
+- Sort by date, amount, or category
+- Export expenses to CSV
+- Fully responsive table and card views
+
+### Budgets Page
+- Create and manage budgets
+- Add amounts to existing budgets
+- Delete budgets with confirmation
+- Visual spending indicators
+- Budget summary with totals
+
+## 🔧 Configuration
+
+### Base URL
+The app is configured for GitHub Pages deployment with base URL `/expense-tracker-webapp/` in `vite.config.ts`:
+
+```typescript
+export default defineConfig({
+  base: '/expense-tracker-webapp/',
+  // ...
+})
+```
+
+### Router Configuration
+React Router is configured with the appropriate basename in `App.tsx`:
+
+```typescript
+<Router basename="/expense-tracker-webapp">
+```
+
+## 📝 License
+
+This project is open source and available under the MIT License.
+
+## 👨‍💻 Author
+
+**Shamveel**
+- GitHub: [@Shamveelgit](https://github.com/Shamveelgit)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+---
+
+Made with ❤️ by Shamveel
+
 import reactDom from 'eslint-plugin-react-dom'
 
 export default defineConfig([

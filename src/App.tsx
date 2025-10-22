@@ -54,7 +54,7 @@ function App() {
   ]
 
   return (
-    <Router>
+    <Router basename="/expense-tracker-webapp">
       <div className="flex flex-col md:flex-row bg-background w-full overflow-hidden h-screen">
         <Sidebar open={open} setOpen={setOpen}>
           <SidebarBody className="justify-between gap-10">
